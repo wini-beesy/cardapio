@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Romântico - Dia dos Namorados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+      @import url('https://api.fontshare.com/v2/css?f[]=melodrama@400,500,600,700&f[]=satoshi@300,400,500,700&display=swap');
+
+      body {
+        font-family: 'Satoshi', sans-serif;
+        background-color: #1a0505;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      h1, h2, h3, .romantic-quote {
+        font-family: 'Melodrama', serif;
+      }
+
+      .gold-gradient {
+        background: linear-gradient(135deg, #d4af37 0%, #f9d976 50%, #d4af37 100%);
+      }
+
+      .divider-gradient {
+        background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.4), transparent);
+      }
+
+      @keyframes float {
+        0%   { transform: translateY(0) scale(1); opacity: 0; }
+        20%  { opacity: 0.6; }
+        100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+      }
+
+      @keyframes pulse-soft {
+        0%, 100% { transform: scale(1); }
+        50%       { transform: scale(1.05); }
+      }
+
+      @keyframes fade-up {
+        from { opacity: 0; transform: translateY(30px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes bounce-subtle {
+        0%, 100% { transform: translateY(0); }
+        50%       { transform: translateY(-10px); }
+      }
+
+      .animate-bounce-subtle { animation: bounce-subtle 2.2s infinite ease-in-out; }
+      .animate-fade-up       { animation: fade-up 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+      .animate-pulse-soft    { animation: pulse-soft 3.5s infinite ease-in-out; }
+
+      .floating-heart {
+        position: fixed;
+        bottom: -50px;
+        color: #f43f5e;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 10;
+        animation: float linear infinite;
+      }
+
+      .glass-card {
+        background: rgba(45, 5, 5, 0.6);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(244, 63, 94, 0.15);
+      }
+
+      .parallax-container {
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        perspective: 10px;
+        scroll-behavior: auto;
+        scroll-snap-type: y proximity;
+        scroll-padding-top: 100px;
+      }
+
+      .parallax-layer-back {
+        transform: translateZ(-5px) scale(1.5);
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: -1;
+      }
+
+      .parallax-layer-base {
+        transform: translateZ(0);
+        position: relative;
+        z-index: 10;
+      }
+
+      .snap-section {
+        scroll-snap-align: start;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="parallax-container w-full bg-[#1a0505] text-rose-50">
+
+      <!-- Fundo parallax -->
+      <div class="parallax-layer-back opacity-30">
+        <img
+          src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=1200&auto=format&fit=crop"
+          alt="Rosas vermelhas"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <div class="parallax-layer-base flex flex-col min-h-screen">
+
+        <!-- Corações flutuantes -->
+        <div class="floating-heart" style="left: 10%; font-size: 20px; animation-duration: 9s; animation-delay: 0s;">
+          <iconify-icon icon="lucide:heart"></iconify-icon>
+        </div>
+        <div class="floating-heart" style="left: 55%; font-size: 25px; animation-duration: 13s; animation-delay: 4s;">
+          <iconify-icon icon="lucide:heart"></iconify-icon>
+        </div>
+        <div class="floating-heart" style="left: 85%; font-size: 18px; animation-duration: 10s; animation-delay: 2s;">
+          <iconify-icon icon="lucide:heart"></iconify-icon>
+        </div>
+
+        <!-- Header -->
+        <header class="snap-section h-screen flex flex-col items-center justify-center px-8 text-center relative z-20 animate-fade-up bg-gradient-to-b from-transparent via-[#1a0505]/40 to-[#1a0505]">
+          <div class="relative mb-8">
+            <img
+              src="assets/Machado Final.png"
+              class="w-28 h-28 rounded-full object-cover border-4 border-amber-400/50 shadow-[0_0_40px_rgba(251,191,36,0.3)] animate-pulse-soft"
+              alt="Logo Machado"
+            />
+          </div>
+
+          <h1 class="text-6xl leading-tight mb-4 tracking-tighter font-bold">
+            Machado Gastrobar<br />
+            <span class="text-amber-400">Apresenta</span>
+          </h1>
+
+          <p class="text-rose-200 font-light text-lg italic tracking-wide max-w-xs">
+            Um menu exclusivo para corações que batem no mesmo ritmo.
+          </p>
+
+          <a
+            id="discover-cta"
+            href="#menu-start"
+            class="mt-14 gold-gradient px-10 py-5 rounded-full text-red-950 font-bold text-sm tracking-widest uppercase shadow-[0_15px_35px_rgba(212,175,55,0.4)] animate-bounce-subtle flex items-center gap-2"
+          >
+            Descubra essa experiencia
+            <iconify-icon icon="lucide:chevron-down"></iconify-icon>
+          </a>
+        </header>
+
+        <!-- Main -->
+        <main
+          id="menu-start"
+          class="snap-section flex-1 px-6 pt-32 pb-[160px] relative z-20 space-y-32 animate-fade-up bg-[#1a0505]"
+          style="animation-delay: 0.3s;"
+        >
+
+          <!-- Abertura -->
+          <section class="relative">
+            <div class="flex items-center gap-4 mb-10">
+              <h2 class="text-xs text-amber-400 tracking-[0.4em] uppercase font-bold">Abertura</h2>
+              <div class="h-[1px] flex-1 divider-gradient"></div>
+            </div>
+            <div class="flex flex-row items-center gap-8">
+              <div class="flex-1 space-y-4">
+                <h3 class="text-3xl text-rose-50 leading-none">Bruschettas de Presunto Parma &amp; Vinagrete</h3>
+                <p class="text-rose-300/90 text-sm italic leading-relaxed">
+                  Presunto Parma, queijo parmesão, folhas de manjericão, tomate e azeite de oliva.
+                </p>
+              </div>
+              <div class="w-36 h-36 flex-shrink-0 relative">
+                <div class="absolute -inset-3 bg-rose-500/20 rounded-full blur-2xl"></div>
+                <img
+                  src="assets/receita-facil-de-bruschetta-de-presunto-parma.webp"
+                  class="w-full h-full object-cover rounded-full border-2 border-rose-400/30 relative z-10"
+                  alt="Bruschettas"
+                />
+              </div>
+            </div>
+          </section>
+
+          <!-- Citação 1 -->
+          <div class="py-16 text-center px-6 relative">
+            <div class="absolute inset-0 opacity-20 -z-10 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=600&auto=format&fit=crop"
+                class="w-full scale-150 grayscale blur-md"
+                alt="Velas"
+              />
+            </div>
+            <p class="romantic-quote text-3xl text-amber-100/90 leading-tight italic">
+              "A melhor companhia é aquela que torna cada refeição especial."
+            </p>
+            <div class="mt-6 h-[1px] w-16 bg-amber-400/40 mx-auto"></div>
+          </div>
+
+          <!-- Ato Principal -->
+          <section class="relative">
+            <div class="flex items-center gap-4 mb-10 flex-row-reverse">
+              <h2 class="text-xs text-amber-400 tracking-[0.4em] uppercase font-bold">Prato Principal</h2>
+              <div class="h-[1px] flex-1 divider-gradient"></div>
+            </div>
+            <div class="flex flex-row-reverse items-center gap-8">
+              <div class="flex-1 space-y-4 text-right">
+                <h3 class="text-3xl text-rose-50 leading-none">Alcatra grelhada ao molho Bechamel</h3>
+                <p class="text-rose-300/90 text-sm italic leading-relaxed">
+                  Alcatra grelhada com molho bechamel, batata souté, arroz e salada mista com tomate cereja, rucula, pepino e palmito.
+                </p>
+              </div>
+              <div class="w-36 h-36 flex-shrink-0 relative">
+                <div class="absolute -inset-3 bg-amber-500/20 rounded-full blur-2xl"></div>
+                <img
+                  src="assets/Gemini_Generated_Image_6n4qn46n4qn46n4q.png"
+                  class="w-full h-full object-cover rounded-full border-2 border-amber-400/30 relative z-10 shadow-2xl"
+                  alt="Risoto"
+                />
+              </div>
+            </div>
+          </section>
+
+          <!-- Citação 2 -->
+          <div class="py-14 text-center px-8 glass-card rounded-[50px] mx-2 border-rose-500/20 shadow-2xl">
+            <p class="romantic-quote text-2xl text-rose-100 leading-relaxed italic">
+              "Onde há amor, há sabor em cada detalhe."
+            </p>
+          </div>
+
+          <!-- Final Doce -->
+          <section class="relative">
+            <div class="flex items-center gap-4 mb-10">
+              <h2 class="text-xs text-amber-400 tracking-[0.4em] uppercase font-bold">Final Doce</h2>
+              <div class="h-[1px] flex-1 divider-gradient"></div>
+            </div>
+            <div class="flex flex-row items-center gap-8">
+              <div class="flex-1 space-y-4">
+                <h3 class="text-3xl text-rose-50 leading-none">Pera assada no vinho tinto</h3>
+                <p class="text-rose-300/90 text-sm italic leading-relaxed">
+                  Pera assada no vinho tinto, canela em flocos, creme de leite e sorvete de baunilha.
+                </p>
+              </div>
+              <div class="w-36 h-36 flex-shrink-0 relative">
+                <div class="absolute -inset-3 bg-rose-500/20 rounded-full blur-2xl"></div>
+                <img
+                  src="assets/Deliciosa-receita-de-Pera-Poche-no-Vinho-Tinto.jpg"
+                  class="w-full h-full object-cover rounded-full border-2 border-rose-400/30 relative z-10"
+                  alt="Sobremesa"
+                />
+              </div>
+            </div>
+          </section>
+
+          <!-- Harmonização -->
+          <section>
+            <div class="flex items-center gap-4 mb-10">
+              <div class="h-[1px] flex-1 divider-gradient"></div>
+              <h2 class="text-xs text-amber-400 tracking-[0.4em] uppercase font-bold text-center">Harmonização</h2>
+              <div class="h-[1px] flex-1 divider-gradient"></div>
+            </div>
+            <div class="space-y-8">
+              <div class="glass-card p-7 rounded-[40px] flex justify-between items-center group active:scale-[0.98] transition-all shadow-xl">
+                <div class="flex items-center gap-5">
+                  <img
+                    src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=150&auto=format&fit=crop"
+                    class="w-16 h-16 rounded-full object-cover border border-amber-400/30"
+                    alt="Vinho"
+                  />
+                  <div class="flex flex-col">
+                    <span class="text-rose-50 font-medium text-lg">Vinho Tinto Reserva</span>
+                    <span class="text-xs text-rose-300/60 uppercase tracking-widest">Garrafa Selecionada</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="glass-card p-7 rounded-[40px] flex justify-between items-center group active:scale-[0.98] transition-all shadow-xl">
+                <div class="flex items-center gap-5">
+                  <img
+                    src="https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=150&auto=format&fit=crop"
+                    class="w-16 h-16 rounded-full object-cover border border-rose-400/30"
+                    alt="Drink"
+                  />
+                  <div class="flex flex-col">
+                    <span class="text-rose-50 font-medium text-lg">Drink Apaixonados</span>
+                    <span class="text-xs text-rose-300/60 uppercase tracking-widest">Moscow Mule</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Rodapé interno -->
+          <div class="flex flex-col items-center gap-6 opacity-40 mt-32 pb-16">
+            <img
+              src="assets/Machado Final.png"
+              class="w-14 h-14 rounded-full object-cover opacity-50 grayscale"
+              alt="Velar final"
+            />
+            <p class="text-[11px] tracking-[0.5em] uppercase font-semibold text-rose-200">
+              Criando memórias eternas
+            </p>
+          </div>
+
+        </main>
+
+        <!-- Footer fixo -->
+        <footer class="fixed bottom-0 left-0 right-0 px-6 pb-10 pt-8 bg-gradient-to-t from-[#1a0505] via-[#1a0505]/95 to-transparent z-50">
+          <a
+            id="whatsapp-reserve-btn"
+            href="https://wa.me/5546988244723"
+            class="gold-gradient w-full py-5 rounded-full flex items-center justify-center gap-3 text-red-950 font-extrabold text-xl shadow-[0_20px_50px_rgba(212,175,55,0.4)] transition-all active:scale-95 animate-pulse-soft border-b-4 border-amber-800/60"
+          >
+            <iconify-icon icon="mdi:whatsapp" class="text-3xl"></iconify-icon>
+            <span>RESERVAR MEU MOMENTO</span>
+          </a>
+        </footer>
+
+      </div>
+    </div>
+
+    <script>
+      document.getElementById('discover-cta').addEventListener('click', function (e) {
+        e.preventDefault();
+        const container = document.querySelector('.parallax-container');
+        const target = document.querySelector('#menu-start');
+        const start = container.scrollTop;
+        const end = target.offsetTop - 100;
+        const duration = 1800;
+        let startTimestamp = null;
+
+        const easeOutExpo = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
+
+        const animateScroll = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const elapsed = timestamp - startTimestamp;
+          const progress = Math.min(elapsed / duration, 1);
+          container.scrollTop = start + (end - start) * easeOutExpo(progress);
+          if (progress < 1) window.requestAnimationFrame(animateScroll);
+        };
+
+        window.requestAnimationFrame(animateScroll);
+      });
+    </script>
+  </body>
+</html>
