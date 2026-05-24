@@ -2,7 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Menu Romântico - Dia dos Namorados</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
@@ -291,6 +291,37 @@
             </div>
           </section>
 
+          <!-- Card Valor do Casal -->
+          <div class="glass-card rounded-[40px] px-8 py-10 mx-2 border border-amber-400/20 shadow-2xl text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-amber-400/5 via-transparent to-rose-500/5 pointer-events-none"></div>
+
+            <p class="text-xs text-amber-400 tracking-[0.4em] uppercase font-bold mb-6">Experiência Completa</p>
+
+            <div class="flex items-end justify-center gap-2 mb-2">
+              <span class="text-rose-300/60 text-lg font-light">R$</span>
+              <span class="text-7xl font-bold text-amber-400 leading-none">190</span>
+              <span class="text-rose-300/60 text-lg font-light mb-2">,00</span>
+            </div>
+            <p class="text-rose-300/70 text-sm mb-8">por casal · menu completo</p>
+
+            <div class="h-[1px] w-full divider-gradient mb-8"></div>
+
+            <div class="space-y-4 text-left">
+              <div class="flex items-start gap-3">
+                <iconify-icon icon="lucide:heart" class="text-rose-400 mt-0.5 flex-shrink-0"></iconify-icon>
+                <p class="text-rose-200 text-sm leading-relaxed">
+                  <span class="text-rose-50 font-medium">Reservas limitadas</span> — garanta seu momento antes que esgote.
+                </p>
+              </div>
+              <div class="flex items-start gap-3">
+                <iconify-icon icon="lucide:credit-card" class="text-amber-400 mt-0.5 flex-shrink-0"></iconify-icon>
+                <p class="text-rose-200 text-sm leading-relaxed">
+                  <span class="text-rose-50 font-medium">50% no ato da reserva</span> — saldo restante na chegada.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <!-- Rodapé interno -->
           <div class="flex flex-col items-center gap-6 opacity-40 mt-32 pb-16">
             <img
@@ -299,14 +330,14 @@
               alt="Velar final"
             />
             <p class="text-[11px] tracking-[0.5em] uppercase font-semibold text-rose-200">
-              Criando memórias eternas
+              Venha celebrar o amor conosco!
             </p>
           </div>
 
         </main>
 
         <!-- Footer fixo -->
-        <footer class="fixed bottom-0 left-0 right-0 px-6 pb-10 pt-8 bg-gradient-to-t from-[#1a0505] via-[#1a0505]/95 to-transparent z-50">
+        <footer class="fixed bottom-0 left-0 right-0 px-6 pt-8 bg-gradient-to-t from-[#1a0505] via-[#1a0505]/95 to-transparent z-50" style="padding-bottom: calc(2.5rem + env(safe-area-inset-bottom))">
           <a
             id="whatsapp-reserve-btn"
             href="https://wa.me/5546988244723"
